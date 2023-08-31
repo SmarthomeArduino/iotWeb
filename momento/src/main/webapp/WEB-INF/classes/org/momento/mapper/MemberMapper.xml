@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.momento.mapper.MemberMapper">
+
+
+	<resultMap type="org.momento.domain.MemberVO" id="memberMap">
+		<id property="userid" column="user_id" />
+		<result property="userid" column="user_id" />
+		<result property="userpw" column="password" />
+		<result property="userName" column="user_name" />
+		<result property="addr" column="addr" />
+		<result property="regDate" column="regdate" />
+		<result property="updateDate" column="updatedate" />
+		<result property="question_code" column="question_code" />
+		<result property="question_answer" column="question_answer" />
+		<result property="phone" column="phone" />
+		<collection property="authList" resultMap="authMap">
+		</collection>
+	</resultMap>
+
+	<resultMap type="org.momento.domain.AuthVO" id="authMap">
+		<result property="userid" column="user_id" />
+		<result property="auth" column="auth" />
+	</resultMap>
+
+	<select id="read" resultMap="memberMap">
+		SELECT
+		mem.user_id ,mem.user_name
+		,mem.password ,mem.addr ,mem.question_code
+		,mem.question_answer
+		,mem.regdate ,mem.updatedate ,
+		mem.phone ,auth.auth
+		FROM
+		member_tbl mem LEFT OUTER JOIN
+		member_tbl_auth auth on
+		mem.user_id =
+		auth.user_id
+		WHERE mem.user_id =
+		#{userid}
+	</select>
+<insert id="insert">
+    INSERT INTO member_tbl (user_id, user_name, password, addr, question_code, question_answer, regdate, updatedate, phone)
+    VALUES (#{userid}, #{userName}, #{userpw}, #{addr}, #{question_code,jdbcType=INTEGER}, #{question_answer},#{regDate},#{updateDate}, #{phone})
+</insert>
+</mapper>

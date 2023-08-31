@@ -1,0 +1,568 @@
+@charset "UTF-8";
+
+/* 화면 로딩 */
+@keyframes fadein {
+	from {opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+@-moz-keyframes fadein { /* Firefox */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+@-webkit-keyframes fadein { /* Safari and Chrome */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+@-o-keyframes fadein { /* Opera */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 1;
+}
+
+}
+/* 화면 로딩-아이콘  */
+@keyframes fadein-icon {
+	from {opacity: 0;
+}
+
+to {
+	opacity: 0.7;
+}
+
+}
+@-moz-keyframes fadein-icon { /* Firefox */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 0.7;
+}
+
+}
+@-webkit-keyframes fadein-icon { /* Safari and Chrome */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 0.7;
+}
+
+}
+@-o-keyframes fadein-icon { /* Opera */
+	from {opacity: 0;
+}
+
+to {
+	opacity: 0.7;
+}
+
+}
+* {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+h1 {
+	font-weight: 900;
+	margin-bottom: 0px;
+}
+
+h2 {
+	margin-top: 0px;
+	margin-bottom: 30px;
+	font-weight: 700;
+	color: #ffff;
+}
+
+h3 {
+	font-weight: 500;
+	color: #ffff;
+}
+
+h4 {
+	font-weight: 400;
+	color: #ffff;
+}
+
+p {
+	font-weight: 200;
+}
+
+body {
+	min-height: 100vh;
+	background:no-repeat center center fixed;
+	background-size: cover;
+	/* background-image: url("https://wallup.net/wp-content/uploads/2019/09/726722-landscape.jpg"); */
+}
+   
+
+.clock {
+	animation: fadein 1000ms ease-out;
+	-moz-animation: fadein 1000ms ease-out; /* Firefox */
+	-webkit-animation: fadein 1000ms ease-out; /* Safari and  Chrome */
+	-o-animation: fadein 1000ms ease-out; /* Opera */
+	width: 600px;
+	height: 250px;
+	line-height: 250px;
+	color: rgba(255, 255, 255, 0.9);
+	font-size: 168px;
+	font-family: 'Noto Sans KR', sans-serif;
+	text-align: center;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	font-size: 168px;
+}
+
+.weather {
+	animation: fadein 1000ms ease-out;
+	-moz-animation: fadein 1000ms ease-out; /* Firefox */
+	-webkit-animation: fadein 1000ms ease-out; /* Safari and  Chrome */
+	-o-animation: fadein 1000ms ease-out; /* Opera */
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.2);
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	color: rgba(255, 255, 255, 0.8);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	display: flex;
+	border-radius: 5px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position: fixed;
+	top: 10px;
+	right: 10px;
+	padding: 5px 10px;
+	align-items: center;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#city {
+	margin-right: 10px;
+	font-weight: 500;
+}
+
+#temp {
+	font-weight: 400;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	height: 100%;
+	align-items: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.input-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+	/* background-color: rgba(0,0,0,0.3); */
+	/* border:30px,30px,30px,30px; */
+	padding-bottom: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+	border-radius: 3%;
+	margin-top: 10px;
+}
+
+.input-container input, .input-container button, .input-container .naver-login,
+	.input-container .kakao-login {
+	color: white;
+	margin: 5px;
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 30px;
+	width: 300px;
+	transition: opacity 0.25s, transform 0.1s;
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	image-rendering: -webkit-optimize-contrast;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+}
+
+.auto-login {
+	all: initial;
+	color: rgba(255, 255, 255, 1.0);
+	margin-left: 25px;
+	width: 300px;
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1.0);
+	font-size: 15px;
+	font-weight: 20px;
+	
+}
+
+input::placeholder {
+	color: white;
+}
+
+.input-container input {
+	padding-left: 20px
+}
+
+.input-container input:hover, .input-container button:hover,
+	.input-container .naver-login:hover, .input-container .kakao-login:hover
+	{
+	background-color: rgba(255, 255, 255, 0.15);
+	transition: 0.1s ease-out;
+}
+
+.input-container input:not(:hover) {
+	transition: 1s ease-out;
+}
+
+.input-container button:not(:hover) { .
+	transition: 1s ease-out;
+}
+
+.input-container input:focus, .input-container button:focus,
+	.input-container .naver-login:focus, .input-container .kakao-login:focus
+	{
+	background-color: rgba(255, 255, 255, 0.2);
+}
+
+.input-container .naver-login {
+	background-color: rgba(3, 199, 90, 0.6);
+	color: white;
+	cursor: pointer;
+	width: 140px;
+}
+
+.input-container .naver-login:hover {
+	background-color: rgba(3, 199, 90, 0.7);
+	color: white;
+	cursor: pointer;
+	transition: 0.1s ease-out;
+}
+
+.input-container .naver-login:not(:hover) {
+	transition: 1s ease-out;
+}
+
+.input-container .naver-login:focus {
+	background-color: rgba(3, 199, 90, 0.8);
+	color: white;
+	cursor: pointer;
+	transition: 0.1s ease-out;
+}
+
+.input-container .kakao-login {
+	background-color: rgba(255, 205, 1, 0.6);
+	cursor: pointer;
+	width: 140px;
+	margin-left: 10px;
+	transition: 0.1s ease-out;
+}
+
+.input-container .kakao-login:hover {
+	background-color: rgba(255, 205, 1, 0.7);
+	cursor: pointer;
+}
+
+.input-container .kakao-login:not(:hover) {
+	transition: 1s ease-out;
+}
+
+.input-container .kakao-login:focus {
+	background-color: rgba(255, 205, 1, 0.8);
+	cursor: pointer;
+}
+
+.links {
+	display: flex;
+	justify-content: center;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.links a {
+	color: rgba(255, 255, 255, 0.8);
+	margin-right: 25px;
+	text-decoration-line: none;
+}
+
+.links a:hover {
+	color: rgba(255, 255, 255, 1.0);
+	margin-right: 25px;
+	opacity: 1;
+	text-decoration-line: none;
+	transition: 0.1s ease-out;
+}
+
+.links a:not(:hover) {
+	transition: 1s ease-out;
+}
+
+.links a:focus {
+	color: rgba(255, 255, 255, 1.0);
+	margin-right: 25px;
+	opacity: 1;
+	text-decoration-line: none;
+	transition: 0.1s ease-out;
+}
+
+.links a:last-child {
+	margin-right: 0;
+}
+/* 검정 테두리 없에기 */
+button:focus-visible {
+	outline: none;
+}
+
+/* 마우스, 터치로 버튼에 포커스 시 */
+button:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* 검정 테두리 없에기 */
+input:focus-visible {
+	outline: none;
+}
+
+/* 마우스, 터치로 버튼에 포커스 시 */
+input:focus:not(:focus-visible) {
+	outline: none;
+}
+
+/* AM/PM 텍스트 작게 표시 */
+#clock span {
+	font-size: medium;
+}
+
+/* 화면 좌측 하단 토글창 */
+.toggle-container {
+	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 9999;
+}
+
+.toggle-icon {
+	nimation: fadein-icon 1000ms ease-out;
+	-moz-animation: fadein-icon 1000ms ease-out; /* Firefox */
+	-webkit-animation: fadein-icon 1000ms ease-out;
+	/* Safari and  Chrome */
+	-o-animation: fadein-icon 1000ms ease-out; /* Opera */
+	position: relative;
+	width: 40px;
+	height: 40px;
+	/* 	background-color: #333; */
+	border-radius: 50%;
+	cursor: pointer;
+	background-image: url("../../resources/img/gear.ico");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	opacity: 0.7;
+}
+
+.toggle-icon:hover {
+	opacity: 0.8;
+	/* 	transform: scale(1.05);
+	transition: 0.1s ease-out; */
+}
+
+.toggle-icon.active {
+	opacity: 1.0;
+	transform: rotate(38deg) scale(1.1);
+	transition: 0.3s ease-out;
+}
+
+.toggle-icon:not(.active) {
+	transform: rotate(-38deg);
+	transition: 0.3s ease-out;
+}
+
+.toggle-icon:not(:hover) {
+	transition: 0.3s ease-out;
+}
+
+.toggle-content {
+	color: white;
+	text-align: center;
+	visibility: hidden;
+	position: absolute;
+	bottom: 30px;
+	width: 150px;
+	/* height: 240px; */
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background-color: none;
+	margin-bottom: 20px;
+	/* margin-left: 5px; */
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+	transition: all 0.3s;
+}
+
+.toggle-content>a {
+	visibility: hidden;
+	border: 0;
+	background: none;
+	color: rgba(255, 255, 255, 0.0);
+	transition: all 1.0s;
+	text-decoration-line: none;
+}
+
+.toggle-content>a:hover {
+	text-decoration-line: none;
+}
+
+.toggle-container.active .toggle-content {
+	visibility: visible;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-container.active .toggle-content>a {
+	visibility: visible;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+}
+
+.toggle-container.active .toggle-content>a:hover {
+	color: rgba(255, 255, 255, 1.0);
+	transform: scale(2.0);
+	transition: 0.1s ease-out;
+	text-decoration-line: none;
+}
+
+.toggle-content p {
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+/* 명언 */
+/* .quote{
+	justify-content: center;
+	left:50%;
+	border-top:10%;
+	border-bottom:10%;
+	text-align:center;
+	align-items: center;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+	position:absolute;
+
+} */
+
+/* 로그인 후 시계 하단 일정 입력창 */
+
+
+.todo-list {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+	overflow-y: scroll;
+	height: 15rem;
+	
+}
+
+.todo-list li {
+	margin-bottom: 1rem;
+}
+
+.todo-list li span {
+	font-size: 2rem;
+	font-weight: 600;
+	text-shadow: 2px 2px black;
+	color: white;
+}
+
+.todo-list li button {
+	cursor: pointer;
+	background: none;
+	font-size: 1.2rem;
+	border: none;
+}
+
+.todo-form input {
+    margin-top: 1.5rem;
+    width: 30rem;
+    height: 3rem;
+    background: none;
+    border: none;
+    border-bottom: 2px solid white;
+    padding: 0.2rem;
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+
+
+.todo-form input::placeholder {
+    color: white;
+    opacity: 0.8;
+    font-size: 2rem;
+    text-align: left;
+}
+
+
+
+.search input {
+	background-image:url(../../resources/img/google.png);
+	background-size:32px;
+	background-position:17px center;
+	background-repeat: no-repeat;
+	font-size: 23px;
+	color: white;
+	margin: 20px;
+	padding-left: 54px;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	border-radius: 30px;
+	width: 500px;
+	height: 60px;
+	transition: opacity 0.25s, transform 0.1s;
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	color: white;
+}
+
+/* 투두 리스트 스크롤바 */
+.todo-list {
+	height: 240px;
+	overflow: auto;
+}
+
+.todo-list::-webkit-scrollbar {
+	width: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+	border-radius: 10px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}
+
