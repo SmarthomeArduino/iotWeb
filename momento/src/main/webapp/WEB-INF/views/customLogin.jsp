@@ -52,7 +52,7 @@ session.setAttribute("state", state);
 	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 </head>
 
-<body>
+<body style="background-color: 71C9CE">
 	<div class="container">
 		<!-- 화면 중앙 시계 -->
 		<div class="clock" id="clock"></div>

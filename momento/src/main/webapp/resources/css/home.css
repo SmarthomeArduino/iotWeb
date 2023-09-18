@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
+body {
+	background-color: #71C9CE;
+	min-height: 100vh;
+}
+
 /* 화면 로딩 */
-@keyframes fadein {
+@
+keyframes fadein {
 	from {opacity: 0;
 }
 
@@ -10,7 +16,8 @@ to {
 }
 
 }
-@-moz-keyframes fadein { /* Firefox */
+@
+-moz-keyframes fadein { /* Firefox */
 	from {opacity: 0;
 }
 
@@ -19,7 +26,8 @@ to {
 }
 
 }
-@-webkit-keyframes fadein { /* Safari and Chrome */
+@
+-webkit-keyframes fadein { /* Safari and Chrome */
 	from {opacity: 0;
 }
 
@@ -28,7 +36,8 @@ to {
 }
 
 }
-@-o-keyframes fadein { /* Opera */
+@
+-o-keyframes fadein { /* Opera */
 	from {opacity: 0;
 }
 
@@ -38,7 +47,8 @@ to {
 
 }
 /* 화면 로딩-아이콘  */
-@keyframes fadein-icon {
+@
+keyframes fadein-icon {
 	from {opacity: 0;
 }
 
@@ -47,7 +57,8 @@ to {
 }
 
 }
-@-moz-keyframes fadein-icon { /* Firefox */
+@
+-moz-keyframes fadein-icon { /* Firefox */
 	from {opacity: 0;
 }
 
@@ -56,7 +67,8 @@ to {
 }
 
 }
-@-webkit-keyframes fadein-icon { /* Safari and Chrome */
+@
+-webkit-keyframes fadein-icon { /* Safari and Chrome */
 	from {opacity: 0;
 }
 
@@ -65,7 +77,8 @@ to {
 }
 
 }
-@-o-keyframes fadein-icon { /* Opera */
+@
+-o-keyframes fadein-icon { /* Opera */
 	from {opacity: 0;
 }
 
@@ -103,14 +116,6 @@ h4 {
 p {
 	font-weight: 200;
 }
-
-body {
-	min-height: 100vh;
-	background:no-repeat center center fixed;
-	background-size: cover;
-	/* background-image: url("https://wallup.net/wp-content/uploads/2019/09/726722-landscape.jpg"); */
-}
-   
 
 .clock {
 	animation: fadein 1000ms ease-out;
@@ -211,7 +216,6 @@ body {
 	text-shadow: 0px 0px 10px rgba(0, 0, 0, 1.0);
 	font-size: 15px;
 	font-weight: 20px;
-	
 }
 
 input::placeholder {
@@ -473,14 +477,11 @@ input:focus:not(:focus-visible) {
 } */
 
 /* 로그인 후 시계 하단 일정 입력창 */
-
-
 .todo-list {
 	font-size: 1.5rem;
 	margin-top: 1.5rem;
 	overflow-y: scroll;
 	height: 15rem;
-	
 }
 
 .todo-list li {
@@ -502,32 +503,29 @@ input:focus:not(:focus-visible) {
 }
 
 .todo-form input {
-    margin-top: 1.5rem;
-    width: 30rem;
-    height: 3rem;
-    background: none;
-    border: none;
-    border-bottom: 2px solid white;
-    padding: 0.2rem;
-    text-align: center;
-    font-size: 2rem;
-    color: white;
+	margin-top: 1.5rem;
+	width: 30rem;
+	height: 3rem;
+	background: none;
+	border: none;
+	border-bottom: 2px solid white;
+	padding: 0.2rem;
+	text-align: center;
+	font-size: 2rem;
+	color: white;
 }
-
 
 .todo-form input::placeholder {
-    color: white;
-    opacity: 0.8;
-    font-size: 2rem;
-    text-align: left;
+	color: white;
+	opacity: 0.8;
+	font-size: 2rem;
+	text-align: left;
 }
 
-
-
 .search input {
-	background-image:url(../../resources/img/google.png);
-	background-size:32px;
-	background-position:17px center;
+	background-image: url(../../resources/img/google.png);
+	background-size: 32px;
+	background-position: 17px center;
 	background-repeat: no-repeat;
 	font-size: 23px;
 	color: white;
@@ -565,4 +563,3 @@ input:focus:not(:focus-visible) {
 	border-radius: 10px;
 	box-shadow: inset 0px 0px 5px white;
 }
-

@@ -9,6 +9,7 @@
 <title>회원가입 화면 샘플 - Bootstrap</title>
 
 <!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 <link rel="stylesheet" href="/resources/css/member_in_05/member_in_05.css" />
 </head>
 

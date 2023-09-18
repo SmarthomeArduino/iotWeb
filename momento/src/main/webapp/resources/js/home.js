@@ -1,22 +1,3 @@
-//배경설정
- var images = [
-            "https://wallup.net/wp-content/uploads/2019/09/726722-landscape.jpg",
-            "https://wallpaperaccess.com/full/343619.jpg",
-            "https://images8.alphacoders.com/131/1318148.png",
-            "https://wallpapers.com/images/hd/blue-aesthetic-moon-df8850p673zj275y.jpg",
-            "https://w.forfun.com/fetch/b4/b499df2260fd44cf6cd641d011017501.jpeg",
-            "https://wallpapers.com/images/hd/scenic-apennine-mountains-7d5qa9cja90xhd2h.jpg",
-            // 랜덤 이미지 URL 추가
-        ];
-
-        function getRandomImage() {
-            var randomIndex = Math.floor(Math.random() * images.length);
-            var imageUrl = images[randomIndex];
-            document.body.style.backgroundImage = "url('" + imageUrl + "')";
-        }
-
-        window.addEventListener("load", getRandomImage);
-        
 // <!-- 날씨 데이터 불러오기 -->
     const city =  document.getElementById("city");
     const temp =  document.getElementById("temp");
