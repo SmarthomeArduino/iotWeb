@@ -43,7 +43,6 @@
 					<hr class="mb-4" />
 					<div id="btnWrap">
 						<button class="btn btn-primary btn-lg btn-block">아이디 찾기</button>
-						<!-- <input type="text" name="userName" id="userName" /> -->
 					</div>
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />

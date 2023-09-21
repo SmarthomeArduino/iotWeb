@@ -68,9 +68,6 @@
 	</div>
 
 	<div class="container">
-		<!-- <a href="mainTest.html"
-        ><img src="img/test_logo.png" width="150px" height="150px" alt="" />
-      </a> -->
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">기본 정보 조회/변경</h4>

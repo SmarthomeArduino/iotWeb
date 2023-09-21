@@ -26,16 +26,6 @@
 // }
 // navigator.geolocation.getCurrentPosition(getGeoInfoSuccess, getGeoInfoFail);
 
-// 명언 배열
-var quotes = [
-  "The only way to do great work is to love what you do. - Steve Jobs",
-  "Don't watch the clock; do what it does. Keep going. - Sam Levenson",
-  "Believe you can and you're halfway there. - Theodore Roosevelt",
-  "The secret of getting ahead is getting started. - Mark Twain",
-  "The best way to predict the future is to create it. - Peter Drucker",
-  "You miss 100% of the shots you don't take. - Wayne Gretzky",
-];
-
 //시계
 function printClock() {
   var clock = document.getElementById("clock");
@@ -68,18 +58,7 @@ function addZeros(num, digit) {
   return zero + num;
 }
 
-function getRandomQuote() {
-  var quoteElement = document.getElementById("quote");
-  var randomIndex = Math.floor(Math.random() * quotes.length);
-  var randomQuote = quotes[randomIndex];
-  quoteElement.innerHTML = randomQuote;
-}
-
-printClock();
-getRandomQuote();
-
 //메뉴 버튼
-
 function toggleContent() {
   var toggleContainer = document.querySelector(".toggle-container");
   toggleContainer.classList.toggle("active");
@@ -87,3 +66,6 @@ function toggleContent() {
   var toggleIcon = document.querySelector(".toggle-icon");
   toggleIcon.classList.toggle("active");
 }
+
+printClock();
+
