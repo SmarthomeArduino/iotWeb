@@ -49,7 +49,6 @@ public class CommonController {
 	@PostMapping(value = "/testAjax",  produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
 	@ResponseBody
 	public ResponseEntity<String> toDo() {
-		log.info("asd");
 		
 		String responseData = "Response data"; 
 		

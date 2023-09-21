@@ -39,6 +39,7 @@ const checkFunctions = {
       message.classList.add("invalid-feedback");
       userName.classList.remove("border-green");
       userName.classList.add("border-red");
+      userName.focus();
     } else if (regex.nameReg.test(nameValue) && nameValue !== str) {
       message.innerText = `${nameValue}는(은) 사용할 수 있는 이름입니다.`;
       message.classList.remove("invalid-feedback");
@@ -52,6 +53,7 @@ const checkFunctions = {
       message.classList.add("invalid-feedback");
       userName.classList.remove("border-green");
       userName.classList.add("border-red");
+      userName.focus();
     } else {
     }
   },
@@ -65,6 +67,7 @@ const checkFunctions = {
       message.classList.add("invalid-feedback");
       userId.classList.remove("border-green");
       userId.classList.add("border-red");
+      userId.focus();
     } else if (regex.idReg.test(userIdValue) && userIdValue !== str) {
       message.innerText = `${userIdValue}는(은) 사용할 수 있는 아이디입니다.`;
       message.classList.remove("invalid-feedback");
@@ -78,6 +81,7 @@ const checkFunctions = {
       message.classList.add("invalid-feedback");
       userId.classList.remove("border-green");
       userId.classList.add("border-red");
+      userId.focus();
       // } else if() {
       //   message.innerText = `*${userIdValue}는(은) 이미 사용중인 아이디입니다.`;
       //   message.classList.remove("valid-feedback");
@@ -151,19 +155,19 @@ const checkFunctions = {
     }
   },
   phoneCheck: function () {
-  let phoneNumbervalue = phoneNumber.value;
-  let message = document.querySelector("#phoneMessage");
-  if (!regex.phoneReg.test(phoneNumbervalue)) {
+    let phoneNumbervalue = phoneNumber.value;
+    let message = document.querySelector("#phoneMessage");
+    if (!regex.phoneReg.test(phoneNumbervalue)) {
       message.innerText = `*잘못된 형식의 전화번호입니다.`;
       message.classList.remove("valid-feedback");
       message.classList.add("invalid-feedback");
       userPw2.classList.remove("border-green");
       userPw2.classList.add("border-red");
-  } else {
-  checkFunctions.addressCheck();
-  }
+    } else {
+      checkFunctions.addressCheck();
+    }
   },
-  
+
   addressCheck: function () {
     let zipcodeValue = zipcode.value;
     let message = document.querySelector("#addressMessage");
@@ -208,25 +212,25 @@ const checkFunctions = {
       message.innerText = "";
       message.classList.remove("invalid-feedback");
       message.classList.add("valid-feedback");
-     test();
+      test();
     } else {
     }
   },
 };
 
 function test() {
-let phoneNumber2 = phoneNumber.value;
+  let phoneNumber2 = phoneNumber.value;
   // 전화번호가 10자리일 때
   if (phoneNumber2.length === 10) {
     const areaCode = phoneNumber2.slice(0, 3);
     const firstPart = phoneNumber2.slice(3, 6);
     const secondPart = phoneNumber2.slice(6);
-    
+
     phone.value = `${areaCode}-${firstPart}-${secondPart}`;
   }
 
   // 전화번호가 11자리일 때
-  
+
   if (phoneNumber2.length === 11) {
     const areaCode = phoneNumber2.slice(0, 3);
     const firstPart = phoneNumber2.slice(3, 7);

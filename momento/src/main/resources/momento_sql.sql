@@ -1,5 +1,6 @@
+-- oracle db
 
-// DB °èÁ¤ »ı¼º ¹× ±ÇÇÑ ºÎ¿©
+// DB ê³„ì • ìƒì„± ë° ê¶Œí•œ ë¶€ì—¬
 IDENTIFIED BY 1234
 DEFAULT TABLESPACE USERS 
 TEMPORARY TABLESPACE temp;
@@ -9,8 +10,8 @@ GRANT RESOURCE TO momento_test;
 GRANT DBA TO momento_test;
 commit;
 
-// Å×ÀÌºí »ı¼º * ¸â¹ö Å×ÀÌºí »ı¼º ÈÄ ±ÇÇÑ Å×ÀÌºí »ı¼º ÇØ¾ßÇÔ. *
-// ¸â¹ö Å×ÀÌºí
+// í…Œì´ë¸” ìƒì„± * ë©¤ë²„ í…Œì´ë¸” ìƒì„± í›„ ê¶Œí•œ í…Œì´ë¸” ìƒì„± í•´ì•¼í•¨. *
+// ë©¤ë²„ í…Œì´ë¸”
 create table member_tbl(
 user_id varchar2(30) not null primary key,
 user_name varchar2(30) not null,
@@ -23,7 +24,7 @@ updatedate date default sysdate,
 phone varchar2(20) not null
 );
 
-// ±ÇÇÑ Å×ÀÌºí
+// ê¶Œí•œ í…Œì´ë¸”
 create table member_tbl_auth (
 user_id varchar2(30) not null primary key,
 auth varchar2(50) not null default 'ROLE_USER',
@@ -32,7 +33,7 @@ auth varchar2(50) not null default 'ROLE_USER',
     REFERENCES member_tbl (user_id)
 );
 
-// ÀÚµ¿ ·Î±×ÀÎ Å×ÀÌºí
+// ìë™ ë¡œê·¸ì¸ í…Œì´ë¸”
 create table persistent_logins (
 user_id varchar2(30) not null,
 series varchar2(64)primary key,
@@ -40,11 +41,42 @@ token varchar2(64) not null,
 last_used timestamp not null
 );
 
-// Å×ÀÌºí ±ÔÄ¢ È®ÀÎ
-desc 'Å×ÀÌºí ¸í';
+// í…Œì´ë¸” ê·œì¹™ í™•ì¸
+desc 'í…Œì´ë¸” ëª…';
 
-// Å×ÀÌºí ÄÃ·³ »èÁ¦
-delete from 'Å×ÀÌºí ¸í' where 'Á¶°Ç' = 'Á¶°Ç';
+// í…Œì´ë¸” ì»¬ëŸ¼ ì‚­ì œ
+delete from 'í…Œì´ë¸” ëª…' where 'ì¡°ê±´' = 'ì¡°ê±´';
 
-// Å×ÀÌºí »èÁ¦
-drop table 'Å×ÀÌºí ¸í';
+// í…Œì´ë¸” ì‚­ì œ
+drop table 'í…Œì´ë¸” ëª…';
+
+
+-- mysql 
+
+-- member_tbl í…Œì´ë¸”
+CREATE TABLE member_tbl (
+    user_id VARCHAR(30) NOT NULL PRIMARY KEY,
+    user_name VARCHAR(30) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    addr VARCHAR(300) NOT NULL,
+    question_code INT(10) NOT NULL,
+    question_answer VARCHAR(20) NOT NULL,
+    regdate TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updatedate TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    phone VARCHAR(20) NOT NULL
+);
+
+-- ê¶Œí•œ í…Œì´ë¸”
+CREATE TABLE member_tbl_auth (
+    user_id VARCHAR(30) NOT NULL PRIMARY KEY,
+    auth VARCHAR(50) NOT NULL DEFAULT 'ROLE_USER',
+    FOREIGN KEY (user_id) REFERENCES member_tbl (user_id) ON DELETE CASCADE
+);
+
+-- ìë™ ë¡œê·¸ì¸ í…Œì´ë¸”
+CREATE TABLE persistent_logins (
+    user_id VARCHAR(30) NOT NULL,
+    series VARCHAR(64) PRIMARY KEY,
+    token VARCHAR(64) NOT NULL,
+    last_used TIMESTAMP NOT NULL
+);

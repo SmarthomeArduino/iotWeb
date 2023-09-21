@@ -12,11 +12,11 @@
 <title>회원가입 화면 샘플 - Bootstrap</title>
 
 <!-- Bootstrap CSS -->
-<link rel="stylesheet" href="../../resources/css/home.css">
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 	crossorigin="anonymous">
+<link rel="stylesheet" href="../../resources/css/home.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link
@@ -29,14 +29,9 @@
 </head>
 
 <body>
-
-
 	<div class="container">
 		<!-- 화면 중앙 시계 -->
 		<div class="clock" id="clock"></div>
-
-		<!-- 이름이 들어간 인사말 -->
-		<!-- <div class="greet">Good Afternoon, MAN</div> -->
 
 		<!-- 구글 검색창 -->
 		<div class="search">
