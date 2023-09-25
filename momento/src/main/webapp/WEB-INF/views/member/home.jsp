@@ -66,7 +66,7 @@
 	<div class="toggle-container">
 		<div class="toggle-icon" onclick="toggleContent()"></div>
 		<div class="toggle-content">
-			<a href="/board/list">Board</a>
+			<a href="/iot/smarthome">smarthome</a>
 			<hr>
 			<a href="#">Diary</a>
 			<hr>

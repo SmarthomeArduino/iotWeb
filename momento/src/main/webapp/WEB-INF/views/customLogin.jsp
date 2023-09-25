@@ -92,8 +92,7 @@ session.setAttribute("state", state);
 			<a href="/member/member_in_03">아이디 찾기</a>
 			<hr>
 			<a href="/member/member_in_04">비밀번호 찾기</a>
-			<hr>
-			<a href="#">고객센터</a>
+			
 		</div>
 	</div>
 
