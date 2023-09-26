@@ -19,8 +19,6 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
 			throws IOException, ServletException {
 
 		log.error("Access Denied Handler");
-		log.error("HttpServletRequest: " + request);
-		log.error("HttpServletResponse: " + response.getHeader("Set-cookie"));
 		log.error("AccessDeniedException: " + accessException);
 		
 		log.error("Redirect....");
