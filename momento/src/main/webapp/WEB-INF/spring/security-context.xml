@@ -58,7 +58,7 @@
 			invalidate-session="true" delete-cookies="remember-me,JSESSION_ID" />
 
 
-		<security:csrf disabled="true" /> <!-- CSRF 토큰 체크 비활성화 -->
+		<!-- <security:csrf disabled="true" /> CSRF 토큰 체크 비활성화 -->
 
 	</security:http>
 
