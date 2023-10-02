@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import lombok.extern.java.Log;
 import lombok.extern.log4j.Log4j;
 
 @Controller
 @Log4j
 public class CommonController {
 
-	// Basic Get Mapping
+	// Basic Get Mapping	
+	
 
 	@GetMapping("/")
 	public String mainGET() {
