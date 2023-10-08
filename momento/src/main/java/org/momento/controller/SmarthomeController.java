@@ -4,8 +4,17 @@ import java.io.OutputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,20 +35,46 @@ public class SmarthomeController {
 		log.info("스마트홈 접속");
 	}
 
+	@PostMapping("/iot/smarthome/tempHumi")
+	@ResponseBody
+	public void getTempHumi(@RequestBody String data)
+			throws UnsupportedEncodingException, JsonMappingException, JsonProcessingException {
+		String encodedString = data;
+		String decodedString = URLDecoder.decode(encodedString, "UTF-8");
+
+		// '=' 문자의 인덱스를 찾습니다.
+		int equalsIndex = decodedString.indexOf('=');
+
+		// '=' 문자 다음의 데이터를 자릅니다.
+		decodedString = decodedString.substring(0, equalsIndex).trim();
+
+		log.info(decodedString);
+
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode jsonNode = objectMapper.readTree(decodedString);
+
+		String temp = jsonNode.get("temp").asText();
+		String humi = jsonNode.get("humi").asText();
+
+		log.info("temp: " + temp);
+		log.info("humi: " + humi);
+
+		// 데이터를 Map에 담아서 반환
+
+	}
+
 	@PostMapping("/iot/smarthome/led")
 	@ResponseBody
 	public void receiveData(@RequestBody String data) throws JsonMappingException, JsonProcessingException {
-        
-        
-        ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode jsonNode = objectMapper.readTree(data);
-        
-        log.info(jsonNode);
 
-        // 파싱된 JSON 객체에서 필요한 데이터 추출
-        String ledValue = jsonNode.get("led").asText();
-        System.out.println("Received LED Value: " + ledValue);
+		ObjectMapper objectMapper = new ObjectMapper();
+		JsonNode jsonNode = objectMapper.readTree(data);
 
+		log.info(jsonNode);
+
+		// 파싱된 JSON 객체에서 필요한 데이터 추출
+		String ledValue = jsonNode.get("led").asText();
+		System.out.println("Received LED Value: " + ledValue);
 
 		try {
 			// 톰캣 서버에 보낼 URL 설정

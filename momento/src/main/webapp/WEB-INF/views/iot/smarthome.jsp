@@ -22,6 +22,15 @@
 		<button data-led="B2" onclick="toggleLED(this)">B2</button>
 	</div>
 
+
+	<h2>
+		Temperature: <span id="temp"></span>
+	</h2>
+	<h2>
+		Humidity: <span id="humi"></span>
+	</h2>
+
+
 	<!-- JavaScript 코드를 포함하는 부분 -->
 	<script>
 		function toggleLED(event) {
@@ -48,6 +57,9 @@
 				}
 			});
 		}
+
+
 	</script>
 </body>
+
 </html>
