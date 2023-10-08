@@ -12,6 +12,10 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.momento.domain.TempHumiVO;
+import org.momento.mapper.MemberMapper;
+import org.momento.mapper.TempHumiMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +34,10 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 public class SmarthomeController {
+	
+	@Autowired
+	private TempHumiMapper tempHumiMapper;
+	
 	@GetMapping("/iot/smarthome")
 	public void logoutGET() {
 		log.info("스마트홈 접속");
@@ -58,7 +66,21 @@ public class SmarthomeController {
 
 		log.info("temp: " + temp);
 		log.info("humi: " + humi);
+		
+		TempHumiVO tempHumiVO =  new TempHumiVO();;
+		
+		
+		tempHumiVO.setTemperature(Float.parseFloat(temp) );
+		tempHumiVO.setHumidity(Float.parseFloat(humi));
+		tempHumiVO.setUserId("dltndns2");
 
+		
+		try {
+			tempHumiMapper.insert(tempHumiVO);	
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		// 데이터를 Map에 담아서 반환
 
 	}
