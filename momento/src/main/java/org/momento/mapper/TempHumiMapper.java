@@ -1,6 +1,5 @@
 package org.momento.mapper;
 
-import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
@@ -14,6 +13,6 @@ public interface TempHumiMapper {
 	// 마지막 온습도 데이터 select
 	public TempHumiVO getLastTemperatureHumidityData();
 
-	public List<TempHumiVO> getHourlyTemperatureData(@Param("timestamp") String timestamp, @Param("name")String name);
+	public List<TempHumiVO> getHourlyTemperatureData(@Param("timestamp") String timestamp, @Param("name") String name);
 
 }

@@ -70,12 +70,10 @@ public class SmarthomeController {
 			e.printStackTrace();
 		}
 
-		log.info(timestamp);
 		Timestamp timestamp2 = new Timestamp(0);
 		List<TempHumiVO> dataList = tempHumiMapper.getHourlyTemperatureData(timestamp.toString(), "dltndns2");
 		dataList.forEach(data2 -> {
 			data2.setTimestamp(timestamp2);
-			log.info(data2);
 
 		});
 		log.info(dataList);
