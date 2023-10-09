@@ -1,22 +1,24 @@
 package org.momento.controller;
 
+import java.io.IOException;
+
 import java.io.OutputStream;
 
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
 
 import org.momento.domain.TempHumiVO;
-import org.momento.mapper.MemberMapper;
+
 import org.momento.mapper.TempHumiMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,13 +36,52 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 public class SmarthomeController {
-	
+
 	@Autowired
 	private TempHumiMapper tempHumiMapper;
-	
+
 	@GetMapping("/iot/smarthome")
-	public void logoutGET() {
+	public void logoutGET(Model model) {
+
+		TempHumiVO temp = tempHumiMapper.getLastTemperatureHumidityData();
+		model.addAttribute("tempHumi", temp);
+		log.info("최근 온습도 데이터: " + temp);
+
 		log.info("스마트홈 접속");
+	}
+
+	@PostMapping("/iot/smarthome/hourlyTemperatureData")
+	@ResponseBody
+	public List<TempHumiVO> getHourlyTemperatureData(@RequestBody String data, Model model) throws IOException {
+
+		data = data.replaceAll("\"", ""); // 이 부분 추가
+		log.info("data:" + data);
+		Timestamp timestamp = null;
+
+		try {
+			SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			java.util.Date parsedDate = dateFormat.parse(data); // 문자열을 Date 객체로 파싱
+
+			Date sqlDate = new Date(parsedDate.getTime()); // Date 객체를 java.sql.Date로 변환
+			timestamp = new Timestamp(sqlDate.getTime()); // java.sql.Date를 Timestamp로 변환
+
+			System.out.println("변환된 Timestamp: " + timestamp);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+
+		log.info(timestamp);
+		Timestamp timestamp2 = new Timestamp(0);
+		List<TempHumiVO> dataList = tempHumiMapper.getHourlyTemperatureData(timestamp.toString(), "dltndns2");
+		dataList.forEach(data2 -> {
+			data2.setTimestamp(timestamp2);
+			log.info(data2);
+
+		});
+		log.info(dataList);
+
+		return dataList;
+
 	}
 
 	@PostMapping("/iot/smarthome/tempHumi")
@@ -66,21 +107,20 @@ public class SmarthomeController {
 
 		log.info("temp: " + temp);
 		log.info("humi: " + humi);
-		
-		TempHumiVO tempHumiVO =  new TempHumiVO();;
-		
-		
-		tempHumiVO.setTemperature(Float.parseFloat(temp) );
+
+		TempHumiVO tempHumiVO = new TempHumiVO();
+		;
+
+		tempHumiVO.setTemperature(Float.parseFloat(temp));
 		tempHumiVO.setHumidity(Float.parseFloat(humi));
 		tempHumiVO.setUserId("dltndns2");
 
-		
 		try {
-			tempHumiMapper.insert(tempHumiVO);	
+			tempHumiMapper.insert(tempHumiVO);
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		
+
 		// 데이터를 Map에 담아서 반환
 
 	}

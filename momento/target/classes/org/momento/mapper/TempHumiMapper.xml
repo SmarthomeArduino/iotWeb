@@ -12,11 +12,38 @@
 		<result property="userId" column="user_id" />
 	</resultMap>
 
+	<select id="getLastTemperatureHumidityData" resultMap="thMap">
+		SELECT *
+		FROM temperature_humidity_data
+		ORDER BY timestamp DESC
+		LIMIT 1
+	</select>
+
 	<insert id="insert">
 		INSERT INTO temperature_humidity_data (temperature,
 		humidity, user_id)
 		VALUES (#{temperature},
 		#{humidity},#{userId} )
 	</insert>
+
+	<select id="getHourlyTemperatureData" resultMap="thMap">
+		SELECT
+		HOUR(timestamp) AS hour, AVG(temperature) AS
+		temperature,
+		AVG(humidity)
+		AS humidity
+		, user_id
+		FROM
+		temperature_humidity_data
+		WHERE
+		DATE(timestamp)
+		= #{timestamp}
+		GROUP BY
+		HOUR(timestamp),
+		user_id
+
+	</select>
+
+
 
 </mapper>
