@@ -20,6 +20,10 @@
 	<bean id="customUserDetailsService"
 		class="org.momento.security.CustomUserDetailsService"></bean>
 
+	<!-- 커스텀 실패 핸들러 빈 등록 -->
+	<bean id="customAuthenticationFailHandler"
+		class="org.momento.security.CustomAuthenticationFailHandler" />
+
 
 	<security:http>
 
@@ -59,7 +63,7 @@
 
 
 		<!-- CSRF 토큰 체크 비활성화 -->
-		<security:csrf disabled="true" /> 
+		<security:csrf disabled="true" />
 
 	</security:http>
 

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.web.servlet.ModelAndView;
 import org.momento.domain.AuthVO;
 import org.momento.domain.MemberVO;
 import org.momento.mapper.MemberMapper;
@@ -29,19 +30,19 @@ public class CustomUserDetailsService implements UserDetailsService {
 		// userName means userid
 		MemberVO vo = memberMapper.read(userName);
 
-		log.warn("queried by member mapper: " + vo);
+		// 사용자 정보 존재하지 않을시
+		if (vo == null) {
+			throw new UsernameNotFoundException("User not found with username: " + userName);
+		}
 
 		AuthVO auth = new AuthVO();
-		
-		
-		
-		log.warn(vo.getAuthList());
+
 		auth.setUserid(vo.getUserid());
 		vo.getAuthList().forEach(authVO -> {
-		    auth.setAuth(authVO.getAuth());
-		    
+			auth.setAuth(authVO.getAuth());
+
 		});
-		
+
 		List<AuthVO> authList = new ArrayList<>();
 		authList.add(auth);
 

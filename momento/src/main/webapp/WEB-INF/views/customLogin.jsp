@@ -5,6 +5,7 @@
 <%@ page import="java.net.URLEncoder"%>
 <%@ page import="java.security.SecureRandom"%>
 <%@ page import="java.math.BigInteger"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <%
 Cookie[] cookies = request.getCookies();
@@ -35,7 +36,7 @@ session.setAttribute("state", state);
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원가입 화면 샘플  Bootstrap</title>
+<title>회원가입 화면 샘플 Bootstrap</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="../../resources/css/home.css">
@@ -53,6 +54,9 @@ session.setAttribute("state", state);
 </head>
 
 <body style="background-color: 71C9CE">
+
+
+
 	<div class="container">
 		<!-- 화면 중앙 시계 -->
 		<div class="clock" id="clock"></div>
@@ -62,21 +66,30 @@ session.setAttribute("state", state);
 			<div class="auto-login">
 				자동로그인 <input type="checkbox" name="remember-me">
 			</div>
-			<div class="input-container" style="padding-bottom:0px">
+			<div class="input-container" style="padding-bottom: 0px">
 				<input type="text" placeholder="ID" name="username"> <input
 					type="password" placeholder="Password" name="password"> <input
 					type="submit" value="Login" id="button"> <input
 					type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 			</div>
 		</form>
+		<!-- 로그인 실패 메시지 표시 -->
+		<c:if test="${param.error ne null}">
+			<p style="color: var(--danger); font-weight: bold">
+				아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다.
+			</p>
+		</c:if>
 
-		<div class="input-container" style="flex-direction:row">
+		<div class="input-container" style="flex-direction: row">
 			<a id="naverIdLogin_loginButton" href="<%=apiURL%>">
 				<button class="naver-login">Naver Login</button>
 			</a> <a onclick="kakaoLogin();" href="javascript:void(0)">
 				<button class="kakao-login">kakao Login</button>
 			</a>
 		</div>
+
+		
+
 	</div>
 
 	<div class="weather">
@@ -92,7 +105,7 @@ session.setAttribute("state", state);
 			<a href="/member/member_in_03">아이디 찾기</a>
 			<hr>
 			<a href="/member/member_in_04">비밀번호 찾기</a>
-			
+
 		</div>
 	</div>
 

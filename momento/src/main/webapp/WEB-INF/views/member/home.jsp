@@ -9,7 +9,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>회원가입 화면 샘플 - Bootstrap</title>
+<title>홈</title>
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet"
@@ -30,6 +30,7 @@
 
 <body>
 	<div class="container">
+	
 		<!-- 화면 중앙 시계 -->
 		<div class="clock" id="clock"></div>
 
