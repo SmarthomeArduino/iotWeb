@@ -25,7 +25,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 @RequestMapping("/member/*")
 @Controller
-public class MemberController{
+public class MemberController {
 
 	@Autowired
 	private MemberMapper memberMapper;
@@ -108,13 +108,22 @@ public class MemberController{
 		log.info("비밀번호 변경 접속(get)");
 
 	}
-	
+
 	// member Post Mappings
 	@PostMapping("/member_w_01")
 	public String signupPOST(MemberVO memberVO) {
+
+		log.info(memberVO);
+		// 기존 id 중복 조회
+//		String originIdCheck = memberMapper.read(memberVO.getUserid()).getUserid();
+//		log.info(originIdCheck);
+//		if (originIdCheck != null)
+//			return "redirect:/member/member_w_01?error=true";
+
+		// passwordHash 처리
 		String hashedPassword = passwordEncoder.encode(memberVO.getUserpw());
 		memberVO.setUserpw(hashedPassword);
-		
+
 		log.info(memberVO);
 		memberMapper.insert(memberVO);
 		memberMapper.authinsert(memberVO.getUserid());
