@@ -48,7 +48,7 @@ let phoneCheck = () => {
   let phonevalue = phone.value;
   let message = document.querySelector("#phoneMessage");
   if (!phoneReg.test(phonevalue)) {
-    message.innerText = `*잘못된 형식의 전화번호입니다.`;
+    message.innerText = `*잘못된 형식의 전화번호입니다. ex) 01022223333`;
     message.classList.remove("valid-feedback");
     message.classList.add("invalid-feedback");
     phone.classList.remove("border-green");

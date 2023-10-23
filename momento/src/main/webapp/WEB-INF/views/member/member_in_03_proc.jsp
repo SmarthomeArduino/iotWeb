@@ -33,9 +33,14 @@
 				<form class="validation-form" id="inputForm" method="post"
 					name="findIdform" novalidate>
 					<div class="col-md-4 mb-3">
-						<label for="id">${userName1}님의 아이디는 <c:out
-								value='${userid}' /> 입니다.
-						</label>
+						<c:if test="${not empty userid}">
+							<label for="id">${userName1}님의 아이디는 <c:out
+									value='${userid}' /> 입니다.
+							</label>
+						</c:if>
+						<c:if test="${empty userid}">
+							<label for="id">존재하지 않는 계정입니다.</label>
+						</c:if>
 					</div>
 					<input type="hidden" name="${_csrf.parameterName}"
 						value="${_csrf.token}" />

@@ -76,7 +76,7 @@ session.setAttribute("state", state);
 		<!-- 로그인 실패 메시지 표시 -->
 		<c:if test="${param.error ne null}">
 			<p style="color: var(--danger); font-weight: bold">
-				아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다.
+				아이디 또는 비밀번호를 잘못 입력했습니다.
 			</p>
 		</c:if>
 

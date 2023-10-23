@@ -18,9 +18,7 @@
 <link rel="stylesheet" href="/resources/css/member_w_01/member_w_01.css" />
 <link rel="stylesheet"
 	href="/resources/css/member_u_01/member_u_01_modal.css" />
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 </head>
 
 <body>
@@ -145,7 +143,9 @@
 			</div>
 		</div>
 	</div>
-
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="/resources/js/member_w_01/member_w_01.js"></script>
 </body>
 </html>

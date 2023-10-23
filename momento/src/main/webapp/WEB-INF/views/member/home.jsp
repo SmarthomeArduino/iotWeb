@@ -69,8 +69,8 @@
 		<div class="toggle-content">
 			<a href="/iot/smarthome">smarthome</a>
 			<hr>
-			<a href="#">Diary</a>
-			<hr>
+			
+			
 			<a href="./member_u_01">My page</a>
 			<hr>
 			<a href="/customLogout">Log-out</a>
