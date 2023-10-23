@@ -60,6 +60,7 @@ let secondPwCheck = () => {
     secondPwMessage.classList.add("valid-feedback");
     secondPw.classList.remove("border-red");
     secondPw.classList.add("border-green");
+    alert("비밀번호가 변경되었습니다.");
     resetPwForm.submit();
   } else if (firstPwValue !== secondPwValue) {
     secondPwMessage.innerText = `*비밀번호가 일치하지 않습니다.`;

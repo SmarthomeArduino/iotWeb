@@ -37,3 +37,11 @@ body {
 	z-index: 1;
 	cursor: pointer;
 }
+
+.valid-feedback{
+	display: block;
+}
+
+.invalid-feedback{
+	display: block;
+}
