@@ -1,9 +1,13 @@
 package org.momento.controller;
 
 import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
@@ -13,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -114,11 +119,7 @@ public class MemberController {
 	public String signupPOST(MemberVO memberVO) {
 
 		log.info(memberVO);
-		// 기존 id 중복 조회
-//		String originIdCheck = memberMapper.read(memberVO.getUserid()).getUserid();
-//		log.info(originIdCheck);
-//		if (originIdCheck != null)
-//			return "redirect:/member/member_w_01?error=true";
+
 
 		// passwordHash 처리
 		String hashedPassword = passwordEncoder.encode(memberVO.getUserpw());
@@ -129,6 +130,23 @@ public class MemberController {
 		memberMapper.authinsert(memberVO.getUserid());
 
 		return "redirect:/customLogin";
+	}
+	
+	@PostMapping("/idDuplCheck")
+	public ResponseEntity<Boolean> idDuplCheck(@RequestBody Map<String, String> requestBody) {
+
+		String id = requestBody.get("id");
+		MemberVO member = memberMapper.read(id);
+		boolean responseMessage = false; // 성공적으로 처리되었다는 메시지
+		
+		if(member != null) {
+			log.info("중복o");
+			return ResponseEntity.ok(true);
+		}
+		log.info("중복x");
+
+	    // 여기서 적절한 로직을 수행한 후 응답을 보낸다고 가정합니다.
+	    return ResponseEntity.ok(responseMessage);
 	}
 
 	@PostMapping("/findPwProc")
