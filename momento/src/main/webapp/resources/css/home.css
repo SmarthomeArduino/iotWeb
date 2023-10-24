@@ -117,6 +117,15 @@ p {
 	font-weight: 200;
 }
 
+header {
+	display:flex !important;
+	position: fixed;
+	justify-content:space-between;
+	top: 10px;
+	right: 10px;
+	left: 10px;
+}
+
 .clock {
 	animation: fadein 1000ms ease-out;
 	-moz-animation: fadein 1000ms ease-out; /* Firefox */
@@ -149,9 +158,6 @@ p {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	position: fixed;
-	top: 10px;
-	right: 10px;
 	padding: 5px 10px;
 	align-items: center;
 	border: 1px solid rgba(0, 0, 0, 0.1);
@@ -183,8 +189,6 @@ p {
 	flex-direction: column;
 	align-items: center;
 	margin-top: 10px;
-	/* background-color: rgba(0,0,0,0.3); */
-	/* border:30px,30px,30px,30px; */
 	padding-bottom: 50px;
 	padding-left: 30px;
 	padding-right: 30px;
@@ -357,10 +361,11 @@ input:focus:not(:focus-visible) {
 
 /* 화면 좌측 하단 토글창 */
 .toggle-container {
-	position: fixed;
+	/* 	position: fixed;
 	bottom: 20px;
 	left: 20px;
-	z-index: 9999;
+	z-index: 9999; */
+	
 }
 
 .toggle-icon {
@@ -414,8 +419,8 @@ input:focus:not(:focus-visible) {
 	padding-bottom: 20px;
 	padding-top: 20px;
 	background-color: none;
-	margin-bottom: 20px;
-	/* margin-left: 5px; */
+	margin-bottom: 2rem;
+	margin-left: 1rem;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 30px;
 	transition: all 0.3s;
@@ -461,8 +466,13 @@ input:focus:not(:focus-visible) {
 }
 
 /* 로그인 후 시계 하단 일정 입력창 */
+.todo {
+	padding: 2rem;
+	background-color: #FFEC82;
+}
+
 .todo-list {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	margin-top: 1.5rem;
 	overflow-y: scroll;
 	height: 15rem;
@@ -473,9 +483,9 @@ input:focus:not(:focus-visible) {
 }
 
 .todo-list li span {
-	font-size: 2rem;
+	font-size: 1.2rem;
 	font-weight: 600;
-	text-shadow: 2px 2px black;
+	text-shadow: 1px 1px black;
 	color: white;
 }
 
@@ -488,7 +498,7 @@ input:focus:not(:focus-visible) {
 
 .todo-form input {
 	margin-top: 1.5rem;
-	width: 30rem;
+	width: 25rem;
 	height: 3rem;
 	background: none;
 	border: none;
@@ -509,21 +519,17 @@ input:focus:not(:focus-visible) {
 .search input {
 	background-image: url(../../resources/img/google.png);
 	background-size: 32px;
-	background-position: 17px center;
 	background-repeat: no-repeat;
 	font-size: 23px;
 	color: white;
 	margin: 20px;
-	padding-left: 54px;
-	background-color: rgba(255, 255, 255, 0.1);
+	padding-left: 2.5rem;
+	background-color: inherit;
 	backdrop-filter: blur(10px);
-	border-radius: 30px;
-	width: 500px;
-	height: 60px;
+	width: 20rem;	
 	transition: opacity 0.25s, transform 0.1s;
-	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
-	border: 1px solid rgba(0, 0, 0, 0.1);
-	text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+	border:none;
+	border-bottom: 1px solid white;
 	color: white;
 }
 

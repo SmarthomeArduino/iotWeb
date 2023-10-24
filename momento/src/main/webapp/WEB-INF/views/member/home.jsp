@@ -45,8 +45,6 @@
 		</div>
 
 		<!-- 투두 리스트 -->
-
-
 		<div class="todo">
 			<form id="todo-form" class="todo-form">
 				<input required type="text" placeholder="Write a to do...." />

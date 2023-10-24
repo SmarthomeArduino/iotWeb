@@ -23,7 +23,10 @@
 
 <body>
 	<div class="container">
-		<a href="/member/home"> </a>
+		<a href="/customLogin"><img src="/resources/img/test_logo.png"
+			width="150px" height="150px" alt="" style="text-align: center;">
+		</a>
+
 		<div class="input-form-backgroud row">
 			<div class="input-form col-md-12 mx-auto">
 				<h4 class="mb-3">회원가입</h4>
