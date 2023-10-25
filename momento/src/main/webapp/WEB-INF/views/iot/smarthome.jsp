@@ -15,16 +15,18 @@
 	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
 	crossorigin="anonymous" />
 
+
 <link href="/resources/css/smarthome/smarthome.css" rel="stylesheet">
+<!-- <link href="/resources/css/home.css" rel="stylesheet"> -->
 
 <title>스마트홈</title>
 </head>
 <body>
-	<div class="wrapper">
+	<div class="container">
 		<header>
 			<h1>스마트홈 모니터링 시스템</h1>
 		</header>
-		<hr />
+
 		<div>
 			<h3>LED 제어</h3>
 
@@ -71,6 +73,32 @@
 
 	</div>
 
+	<footer
+		style="display: flex; padding: 1rem; width: 100%; justify-content: space-between; position: fixed; bottom: 10px; z-index: 9999;">
+		<div class="toggle-container">
+			<div id="toggle-icon" class="toggle-icon" onclick="toggleContent()"></div>
+			<div class="toggle-content">
+				<a href="/iot/smarthome">smarthome</a>
+				<hr>
+				<a href="/member/member_u_01">My page</a>
+				<hr>
+				<a href="/customLogout">Log-out</a>
+			</div>
+
+		</div>
+		
+		<button class="btn" id="toggleTodoBtn">Todo</button>
+			<!-- 투두 리스트 -->
+		<div class="todo"
+			style="display: none; position: fixed; right: 10px; bottom: 10rem; border-radius: 1rem">
+
+			<form id="todo-form" class="todo-form">
+				<input required type="text" placeholder="Write a to do...." />
+			</form>
+			<ul id="todo-list" class="todo-list"></ul>
+		</div>
+	</footer>
+
 
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<!-- Bootstrap JS CDN -->
@@ -93,6 +121,8 @@
 	<script src="/resources/js/smarthome/tempHumiChart.js"></script>
 	<!-- 스마트홈 Led Control -->
 	<script src="/resources/js/smarthome/ledControl.js"></script>
+
+	<script src="/resources/js/smarthome/smarthome.js"></script>
 
 </body>
 </html>

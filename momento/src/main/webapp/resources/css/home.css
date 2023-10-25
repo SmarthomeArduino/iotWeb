@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-body {
+.body {
 	background-color: #71C9CE;
 	min-height: 100vh;
 }
@@ -118,9 +118,9 @@ p {
 }
 
 header {
-	display:flex !important;
+	display: flex !important;
 	position: fixed;
-	justify-content:space-between;
+	justify-content: space-between;
 	top: 10px;
 	right: 10px;
 	left: 10px;
@@ -469,6 +469,11 @@ input:focus:not(:focus-visible) {
 .todo {
 	padding: 2rem;
 	background-color: #FFEC82;
+	display: none;
+	position: fixed;
+	right: 10px;
+	bottom: 10rem;
+	border-radius: 1rem
 }
 
 .todo-list {
@@ -526,9 +531,9 @@ input:focus:not(:focus-visible) {
 	padding-left: 2.5rem;
 	background-color: inherit;
 	backdrop-filter: blur(10px);
-	width: 20rem;	
+	width: 15rem;
 	transition: opacity 0.25s, transform 0.1s;
-	border:none;
+	border: none;
 	border-bottom: 1px solid white;
 	color: white;
 }
@@ -552,4 +557,21 @@ input:focus:not(:focus-visible) {
 	background-color: grey;
 	border-radius: 10px;
 	box-shadow: inset 0px 0px 5px white;
+}
+
+#quote {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.footer {
+	display: flex;
+	padding: 1rem;
+	width: 100%;
+	justify-content: space-between;
+	position: fixed;
+	bottom: 10px;
+	z-index: 9999;
 }

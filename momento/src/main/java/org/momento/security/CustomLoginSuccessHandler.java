@@ -36,13 +36,13 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
 		if (roleNames.contains("ROLE_ADMIN")) {
 
-			response.sendRedirect("/member/home");
+			response.sendRedirect("/iot/smarthome");
 			return;
 		}
 
 		if (roleNames.contains("ROLE_USER")) {
 
-			response.sendRedirect("/member/home");
+			response.sendRedirect("/iot/smarthome");
 			return;
 		}
 

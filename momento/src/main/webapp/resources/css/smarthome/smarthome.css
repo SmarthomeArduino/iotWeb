@@ -2,9 +2,10 @@
 
 body {
 	background-color: #71c9ce;
+	min-height: 120vh;
 }
 
-.wrapper{
+.container{
 	padding: 1rem;
 	
 }
@@ -13,3 +14,183 @@ header{
 	text-align:center;
 }
 
+/* 화면 좌측 하단 토글창 */
+.toggle-container {
+	/* 	position: fixed;
+	bottom: 20px;
+	left: 20px;
+	z-index: 9999; */
+	
+}
+
+.toggle-icon {
+	nimation: fadein-icon 1000ms ease-out;
+	-moz-animation: fadein-icon 1000ms ease-out; /* Firefox */
+	-webkit-animation: fadein-icon 1000ms ease-out;
+	/* Safari and  Chrome */
+	-o-animation: fadein-icon 1000ms ease-out; /* Opera */
+	position: relative;
+	width: 40px;
+	height: 40px;
+	/* 	background-color: #333; */
+	border-radius: 50%;
+	cursor: pointer;
+	background-image: url("/resources/img/gear.ico");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	opacity: 0.7;
+}
+
+.toggle-icon:hover {
+	opacity: 0.8;
+	/* 	transform: scale(1.05);
+	transition: 0.1s ease-out; */
+}
+
+.toggle-icon.active {
+	opacity: 1.0;
+	transform: rotate(38deg) scale(1.1);
+	transition: 0.3s ease-out;
+}
+
+.toggle-icon:not(.active) {
+	transform: rotate(-38deg);
+	transition: 0.3s ease-out;
+}
+
+.toggle-icon:not(:hover) {
+	transition: 0.3s ease-out;
+}
+
+.toggle-content {
+	color: white;
+	text-align: center;
+	visibility: hidden;
+	position: absolute;
+	bottom: 30px;
+	width: 150px;
+	/* height: 240px; */
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background-color: none;
+	margin-bottom: 2rem;
+	margin-left: 1rem;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 30px;
+	transition: all 0.3s;
+}
+
+.toggle-content>a {
+	visibility: hidden;
+	border: 0;
+	background: none;
+	color: rgba(255, 255, 255, 0.0);
+	transition: all 1.0s;
+	text-decoration-line: none;
+}
+
+.toggle-content>a:hover {
+	text-decoration-line: none;
+}
+
+.toggle-container.active .toggle-content {
+	visibility: visible;
+	background-color: rgba(255, 255, 255, 0.1);
+	backdrop-filter: blur(10px);
+	box-shadow: 2px 7px 15px 8px rgba(0, 0, 0, 0.3);
+}
+
+.toggle-container.active .toggle-content>a {
+	visibility: visible;
+	color: rgba(255, 255, 255, 0.8);
+	text-align: center;
+}
+
+.toggle-container.active .toggle-content>a:hover {
+	color: rgba(255, 255, 255, 1.0);
+	transform: scale(2.0);
+	transition: 0.1s ease-out;
+	text-decoration-line: none;
+}
+
+.toggle-content p {
+	margin: 0;
+	padding: 0;
+	color: white;
+}
+
+
+/* 로그인 후 시계 하단 일정 입력창 */
+.todo {
+	padding: 2rem;
+	background-color: #FFEC82;
+}
+
+.todo-list {
+	font-size: 1.2rem;
+	margin-top: 1.5rem;
+	overflow-y: scroll;
+	height: 15rem;
+}
+
+.todo-list li {
+	margin-bottom: 1rem;
+}
+
+.todo-list li span {
+	font-size: 1.2rem;
+	font-weight: 600;
+	text-shadow: 1px 1px black;
+	color: white;
+}
+
+.todo-list li button {
+	cursor: pointer;
+	background: none;
+	font-size: 1.2rem;
+	border: none;
+}
+
+.todo-form input {
+	margin-top: 1.5rem;
+	width: 25rem;
+	height: 3rem;
+	background: none;
+	border: none;
+	border-bottom: 2px solid white;
+	padding: 0.2rem;
+	text-align: center;
+	font-size: 2rem;
+	color: white;
+	
+}
+.todo-form  input:focus {outline:none;}
+
+.todo-form input::placeholder {
+	color: white;
+	opacity: 0.8;
+	font-size: 2rem;
+	text-align: left;
+}
+
+/* 투두 리스트 스크롤바 */
+.todo-list {
+	height: 240px;
+	overflow: auto;
+}
+
+.todo-list::-webkit-scrollbar {
+	width: 10px;
+}
+
+.todo-list::-webkit-scrollbar-thumb {
+	background-color: #2f3542;
+	border-radius: 10px;
+}
+
+.todo-list::-webkit-scrollbar-track {
+	background-color: grey;
+	border-radius: 10px;
+	box-shadow: inset 0px 0px 5px white;
+}

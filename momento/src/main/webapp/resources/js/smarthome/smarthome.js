@@ -26,26 +26,6 @@
 // }
 // navigator.geolocation.getCurrentPosition(getGeoInfoSuccess, getGeoInfoFail);
 
-//시계
-function printClock() {
-  var clock = document.getElementById("clock");
-  var currentDate = new Date();
-  var currentHours = currentDate.getHours() % 12 || 12;
-  var currentMinute = addZeros(currentDate.getMinutes(), 2);
-  var amPm = currentDate.getHours() >= 12 ? "PM" : "AM"; // AM/PM 설정
-
-  var formattedTime =
-    currentHours +
-    ":" +
-    currentMinute +
-    "<span style='font-size: medium;'>" +
-    amPm +
-    "</span>"; // 시간과 AM/PM 표시를 포맷에 맞게 조합
-
-  clock.innerHTML = formattedTime; // 시간을 출력해 줌
-
-  setTimeout(printClock, 1000); // 1초마다 printClock() 함수 호출
-}
 
 function addZeros(num, digit) {
   var zero = "";
@@ -67,59 +47,7 @@ function toggleContent() {
   toggleIcon.classList.toggle("active");
 }
 
-printClock();
 
-// 명언 배열
-const quotes = [
-  {
-    quote: "The way to get started is to quit talking and begin doing.",
-    author: "Walt Disney",
-  },
-  {
-    quote: "Life is what happens when you're busy making other plans.",
-    author: "John Lennon",
-  },
-  {
-    quote:
-      "The world is a book and those who do not travel read only one page.",
-    author: "Saint Augustine",
-  },
-  {
-    quote: "Life is either a daring adventure or nothing at all.",
-    author: "Helen Keller",
-  },
-  {
-    quote: "To Travel is to Live",
-    author: "Hans Christian Andersen",
-  },
-  {
-    quote: "Only a life lived for others is a life worthwhile.",
-    author: "Albert Einstein",
-  },
-  {
-    quote: "You only live once, but if you do it right, once is enough.",
-    author: "Mae West",
-  },
-  {
-    quote: "Never go on trips with anyone you do not love.",
-    author: "Hemmingway",
-  },
-  {
-    quote: "We wander for distraction, but we travel for fulfilment.",
-    author: "Hilaire Belloc",
-  },
-  {
-    quote: "Travel expands the mind and fills the gap.",
-    author: "Sheda Savage",
-  },
-];
-
-const quote = document.querySelector("#quote span:first-child");
-const author = document.querySelector("#quote span:last-child");
-const todaysQuote = quotes[Math.floor(Math.random() * quotes.length)];
-
-quote.innerText = todaysQuote.quote;
-author.innerText = todaysQuote.author;
 
 // todoList 버튼
 document.getElementById("toggleTodoBtn").addEventListener("click", function () {
