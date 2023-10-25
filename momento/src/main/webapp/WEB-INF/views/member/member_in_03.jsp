@@ -12,9 +12,11 @@
 
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<link rel="stylesheet" href="/resources/css/member_in_03/member_in_03.css" />
-<link rel="stylesheet" href="/resources/css/member_in_03/member_in_03_modal.css" />
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/resources/css/member_in_03/member_in_03.css" />
+<link rel="stylesheet"
+	href="/resources/css/member_in_03/member_in_03_modal.css" />
 </head>
 
 <body>
@@ -30,15 +32,13 @@
 					name="findIdform" novalidate action="/member/findIdProc">
 					<div class="col-md-4 mb-3">
 						<label for="name">이름</label> <input type="text"
-							class="form-control" id="userName" name="userName" 
-							required />
-						<div id="nameMessage" style="width:25rem"></div>
+							class="form-control" id="userName" name="userName" required />
+						<div id="nameMessage" style="width: 25rem"></div>
 					</div>
 					<div class="col-md-2 mb-3">
 						<label for="phone">전화번호</label> <input class="form-control"
-							type='text' id='phone' name='phone' required 
-							style="width: 15em;" />
-						<div id="phoneMessage" style="width:25rem"></div>
+							type='text' id='phone' name='phone' required style="width: 15em;" />
+						<div id="phoneMessage" style="width: 25rem"></div>
 					</div>
 					<hr class="mb-4" />
 					<div id="btnWrap">

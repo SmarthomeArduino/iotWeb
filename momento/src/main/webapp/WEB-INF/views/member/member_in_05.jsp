@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8" />
@@ -9,12 +10,10 @@
 <title>회원가입 화면 샘플 - Bootstrap</title>
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<link rel="stylesheet" href="/resources/css/member_in_05/member_in_05.css" />
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="/resources/css/member_in_05/member_in_05.css" />
 </head>
-
-<script src="https://kit.fontawesome.com/c22cf359ff.js"
-	crossorigin="anonymous"></script>
 
 <body>
 	<div class="container">
@@ -26,9 +25,8 @@
 				<form class="validation-form" id="resetPwForm" method="post"
 					name="resetPwForm" action="/member/member_in_05" novalidate>
 					<input type="hidden" name="${_csrf.parameterName}"
-						value="${_csrf.token}" />
-
-					<input type="hidden" name="findPwId" value="${sessionScope.findPwId}" />
+						value="${_csrf.token}" /> <input type="hidden" name="findPwId"
+						value="${sessionScope.findPwId}" />
 					<div class="col-md-5 mb-3" style="position: relative">
 						<label for="newPw">새로운 비밀번호</label> <input type="password"
 							class="form-control pw-position" id="newPw"
@@ -52,6 +50,8 @@
 			</div>
 		</div>
 	</div>
+	<script src="https://kit.fontawesome.com/c22cf359ff.js"
+		crossorigin="anonymous"></script>
 	<script src="/resources/js/member_in_05/member_in_05.js"></script>
 </body>
 </html>

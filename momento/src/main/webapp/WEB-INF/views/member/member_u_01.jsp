@@ -7,16 +7,12 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<link
-	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
-	rel="stylesheet"
-	integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
-	crossorigin="anonymous">
+
+<link rel="stylesheet" href="/resources/css/bootstrap.min.css">
 <link rel="stylesheet" href="/resources/css/member_u_01/member_u_01.css" />
 <link rel="stylesheet"
 	href="/resources/css/member_u_01/member_u_01_modal.css" />
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 </head>
 
 <body>
@@ -24,40 +20,15 @@
 		<a href="/iot/smarthome"><img src="/resources/img/test_logo.png"
 			width="150px" height="150px" alt="" style="text-align: center;">
 		</a>
-		<div id="modalWrap" style="display: none">
-			<div id="modalContent">
-				<div id="modalBody">
-					<span class="closeBtn" style="color: #000000" id="closeBtn">&times;</span>
-					<h3>ID 변경</h3>
 
-					<hr class="mb-4" />
-					<!-- ID 변경 모달 폼 -->
-					<form name="modifyIdForm" class="validation-form" method="post"
-						id="modalIdInputForm" novalidate>
-						<div class="col-md-7 mb-3">
-							<input type="text" class="form-control" id="modalId"
-								placeholder="변경할 아이디를 입력해주세요." name="modalModifyId" required />
-							<input type="text" name="" id="" style="display: none" />
-							<div id="modalIdMessage"></div>
-						</div>
-					</form>
-					<hr class="mb-4" />
-					<button class="btn btn-success" id="modalIdModifyBtn">변경하기
-					</button>
-					<a href="mainTest.html"><button class="btn btn-primary"
-							style="float: right">메인으로 돌아가기</button></a>
-				</div>
-			</div>
-		</div>
-
-		<div id="modalWrap2" style="display: none">
+<!-- 		<div id="modalWrap2" style="display: none">
 			<div id="modalContent2">
 				<div id="modalBody2">
 					<span class="closeBtn" style="color: #000000" id="closeBtn2">&times;</span>
 					<h3>비밀번호 변경 인증</h3>
 
 					<hr class="mb-4" />
-					<!-- 비밀번호 변경 모달 폼 -->
+					비밀번호 변경 모달 폼
 					<form name="modifyPwForm" class="validation-form" method="post"
 						id="modalPwInputForm" novalidate>
 						<div class="col-md-7 mb-3">
@@ -74,7 +45,7 @@
 							style="float: right">메인으로</button></a>
 				</div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="container">
 			<div class="input-form-backgroud row">
@@ -101,21 +72,6 @@
 
 
 						</div>
-
-						<!-- 			<div class="row">
-						<div class="col-md-5 mb-3">
-							<label for="formPw">비밀번호</label> <input type="password"
-								class="form-control" id="formPw" placeholder="***********"
-								name="modifyPw" required disabled />
-							<div id="userPwMessage"></div>
-						</div>
-
-						<div class="col-md-2 mb-3">
-							<span class="hidden-span">hidden_for_space</span>
-							<button class="btn btn-dark btn-block" type="button"
-								id="modifyPwBtn">변경</button>
-						</div>
-					</div> -->
 
 						<div class="col-md-5 mb-3">
 							<label for="pNum">휴대폰 번호</label> <input type="text"
@@ -173,7 +129,7 @@
 						</div>
 
 						<div class="col-md-6">
-							<a href="/member/home"><button class="btn btn-primary btn-lg"
+							<a href="/iot/smarthome"><button class="btn btn-primary btn-lg"
 									style="float: right">메인으로 돌아가기</button></a>
 						</div>
 					</div>
@@ -182,6 +138,8 @@
 		</div>
 
 	</div>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="/resources/js/member_u_01/member_u_01.js"></script>
 
 </body>
